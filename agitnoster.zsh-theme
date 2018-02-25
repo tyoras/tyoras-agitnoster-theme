@@ -88,33 +88,33 @@ git_details() {
   untracked=`git status -s -uall | grep -c "^??"`
 
   if [[ $staged -ne "0" ]]; then
-      prompt_segment blue white
-      echo -n "⚫ ${staged}"
+      prompt_segment blue black
+      echo -n "${staged} ⚑"
   fi
 
   if [[ $untracked -ne "0" ]]; then
-      prompt_segment green white
-      echo -n "✚ ${untracked}"
+      prompt_segment green black
+      echo -n "${untracked} ✚"
   fi
 
   if [[ $deleted -ne "0" ]]; then
-      prompt_segment red white
-      echo -n "- ${deleted}"
+      prompt_segment red black
+      echo -n "${deleted} -"
   fi
 
   if [[ $changed -ne "0" ]]; then
-      prompt_segment magenta white
-      echo -n " ${changed}"
+      prompt_segment yellow black
+      echo -n "${changed} ±"
   fi
 
   if [[ $stashed -ne "0" ]]; then
-      prompt_segment cyan white
-      echo -n "⚑ ${stashed}"
+      prompt_segment cyan black
+      echo -n "${stashed} ⚒"
   fi
 
   if [[ $conflict -ne "0" ]]; then
       prompt_segment red white
-      echo -n " ${conflict}"
+      echo -n "${conflict} ☠"
   fi
 }
 
@@ -142,11 +142,11 @@ git_branch_diff() {
     behind=$(( revs - ahead ))
 
     if [[ $ahead -ne "0" ]]; then
-        echo -n "·↑${ahead}"
+        echo -n " ${ahead}↑"
     fi
 
     if [[ $behind -ne "0" ]]; then
-        echo -n "·↓${behind}"
+        echo -n " ${behind}↓"
     fi
   fi
 }
@@ -165,7 +165,7 @@ prompt_git() {
       prompt_segment green black
     fi
 
-    echo -n "${ref/refs\/heads\//⭠ }"
+    echo -n "${ref/refs\/heads\// }"
 
     git_branch_diff
     git_details
@@ -174,7 +174,7 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue white '%~'
+  prompt_segment blue black '%~'
 }
 
 # Virtualenv: current working virtualenv
