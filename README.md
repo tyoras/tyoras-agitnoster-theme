@@ -8,8 +8,8 @@ It is based on [agnoster theme](https://gist.github.com/3712874) included in [Oh
 ## Install
 Run the following commands to install agitnoster theme:
 ```
-git clone https://github.com/dbestevez/agitnoster-theme.git
-cd agitnoster-theme
+git clone https://github.com/tyoras/tyoras-agitnoster-theme.git
+cd tyoras-agitnoster-theme
 ./install.sh
 ```
 
