@@ -125,7 +125,7 @@ git_branch_diff() {
   if [[ -n "$remote_name" ]]; then
     merge_name=`git config branch.${branch}.merge`
   else
-    remote_name='origin'
+    remote_name='.'
     merge_name="refs/heads/${branch}"
   fi
 
